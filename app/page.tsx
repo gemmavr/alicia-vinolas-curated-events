@@ -33,7 +33,41 @@ function BrandMark({ light = false }: { light?: boolean }) {
 export default function Home() {
   return (
     <main className="min-h-screen bg-ivory text-charcoal">
-      <section id="inicio" className="relative min-h-screen overflow-hidden">
+      <header className="sticky top-0 z-50 border-b border-charcoal/10 bg-ivory/95 backdrop-blur-md">
+        <div className="mx-auto flex max-w-[1480px] flex-col gap-4 px-5 py-4 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+          <div className="flex items-center justify-between gap-4">
+            <BrandMark />
+            <a
+              href="#contacto"
+              className="inline-flex shrink-0 rounded-full bg-terracotta px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#a75f45] sm:hidden"
+            >
+              Evento
+            </a>
+          </div>
+          <nav
+            aria-label="Navegación principal"
+            className="-mx-5 flex gap-5 overflow-x-auto px-5 pb-1 text-[12px] font-semibold uppercase tracking-[0.12em] text-charcoal/70 sm:-mx-8 sm:px-8 lg:mx-0 lg:items-center lg:justify-center lg:overflow-visible lg:px-0"
+          >
+            {siteContent.nav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="shrink-0 transition hover:text-charcoal"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <a
+            href="#contacto"
+            className="hidden shrink-0 rounded-full bg-terracotta px-5 py-3 text-[12px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#a75f45] sm:inline-flex"
+          >
+            Cuéntanos tu evento
+          </a>
+        </div>
+      </header>
+
+      <section id="inicio" className="relative min-h-[calc(100vh-116px)] scroll-mt-32 overflow-hidden">
         <img
           src={siteContent.hero.image.src}
           alt={siteContent.hero.image.alt}
@@ -41,24 +75,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal/60 via-charcoal/20 to-charcoal/5" />
 
-        <header className="relative z-10 mx-auto flex max-w-[1480px] items-center justify-between gap-6 px-5 py-6 sm:px-8 lg:px-12">
-          <BrandMark light />
-          <nav className="hidden items-center gap-8 text-[13px] font-medium text-ivory/90 md:flex">
-            {siteContent.nav.map((item) => (
-              <a key={item.href} href={item.href} className="transition hover:text-white">
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <a
-            href="#contacto"
-            className="hidden rounded-full bg-terracotta px-5 py-3 text-[12px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#a75f45] sm:inline-flex"
-          >
-            Cuéntanos tu evento
-          </a>
-        </header>
-
-        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-112px)] max-w-[1480px] items-end px-5 pb-10 sm:px-8 lg:px-12 lg:pb-16">
+        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-116px)] max-w-[1480px] items-end px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
           <div className="max-w-[720px] bg-ivory px-6 py-7 sm:px-10 sm:py-9 lg:ml-[7vw] lg:px-12 lg:py-11">
             <Eyebrow>{siteContent.hero.eyebrow}</Eyebrow>
             <h1 className="mt-5 font-serif text-[42px] leading-[0.97] tracking-[-0.01em] text-charcoal sm:text-[68px] lg:text-[82px]">
@@ -89,7 +106,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-[1240px] gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_0.78fr] lg:px-12 lg:py-28">
+      <section
+        id="experiencia"
+        className="mx-auto grid max-w-[1240px] scroll-mt-32 gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_0.78fr] lg:px-12 lg:py-28"
+      >
         <h2 className="font-serif text-[38px] leading-[1.02] text-charcoal sm:text-[54px]">
           {siteContent.trust.title}
         </h2>
@@ -105,7 +125,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="servicios" className="bg-stone/70 px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+      <section
+        id="servicios"
+        className="scroll-mt-32 bg-stone/70 px-5 py-20 sm:px-8 lg:px-12 lg:py-28"
+      >
         <div className="mx-auto max-w-[1240px]">
           <div className="max-w-[780px]">
             <Eyebrow>{siteContent.services.eyebrow}</Eyebrow>
@@ -131,7 +154,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="enfoque" className="mx-auto grid max-w-[1320px] gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[0.92fr_1fr] lg:px-12 lg:py-32">
+      <section
+        id="enfoque"
+        className="mx-auto grid max-w-[1320px] scroll-mt-32 gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[0.92fr_1fr] lg:px-12 lg:py-32"
+      >
         <div className="grid grid-cols-6 grid-rows-[160px_120px_170px_120px] gap-4 sm:grid-rows-[210px_150px_220px_150px]">
           {siteContent.curated.images.map((image, index) => (
             <img
@@ -159,7 +185,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-charcoal/10 px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+      <section
+        id="metodo"
+        className="scroll-mt-32 border-y border-charcoal/10 px-5 py-20 sm:px-8 lg:px-12 lg:py-28"
+      >
         <div className="mx-auto max-w-[1240px]">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1fr]">
             <div>
@@ -186,7 +215,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="sobre-alicia" className="mx-auto grid max-w-[1240px] gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.76fr_1fr] lg:px-12 lg:py-32">
+      <section
+        id="sobre-alicia"
+        className="mx-auto grid max-w-[1240px] scroll-mt-32 gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.76fr_1fr] lg:px-12 lg:py-32"
+      >
         <div className="relative">
           <img
             src={siteContent.about.image.src}
@@ -215,7 +247,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-stone px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+      <section
+        id="responsabilidad"
+        className="scroll-mt-32 bg-stone px-5 py-20 sm:px-8 lg:px-12 lg:py-28"
+      >
         <div className="mx-auto max-w-[1240px]">
           <div className="max-w-[760px]">
             <Eyebrow>{siteContent.responsibility.eyebrow}</Eyebrow>
@@ -237,7 +272,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contacto" className="bg-sage px-5 py-20 text-ivory sm:px-8 lg:px-12 lg:py-28">
+      <section
+        id="contacto"
+        className="scroll-mt-32 bg-sage px-5 py-20 text-ivory sm:px-8 lg:px-12 lg:py-28"
+      >
         <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[0.85fr_1fr]">
           <div>
             <h2 className="font-serif text-[44px] leading-[1.02] sm:text-[68px]">

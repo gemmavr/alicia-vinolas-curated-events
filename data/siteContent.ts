@@ -9,9 +9,13 @@ export const siteContent = {
       "Eventos corporativos curados con sensibilidad mediterranea y precision profesional.",
   },
   nav: [
+    { label: "Inicio", href: "#inicio" },
+    { label: "Experiencia", href: "#experiencia" },
     { label: "Servicios", href: "#servicios" },
     { label: "Enfoque", href: "#enfoque" },
+    { label: "Método", href: "#metodo" },
     { label: "Sobre Alicia", href: "#sobre-alicia" },
+    { label: "Responsabilidad", href: "#responsabilidad" },
     { label: "Contacto", href: "#contacto" },
   ],
   hero: {
